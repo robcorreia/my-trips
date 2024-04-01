@@ -13,8 +13,9 @@
     "generate": "yarn plop --plopfile generators/plopfile.js",
     "storybook": "start-storybook -p 6006",
     "postinstall": "husky install",
-    "prepare": "husky install"
-  },
+    "prepare": "husky install",
+    "codegen": "graphql-codegen --config codegen.yml"
+    },
   "lint-staged": {
     "src/**/*": [
       "yarn lint --fix",
@@ -24,7 +25,7 @@
   "dependencies": {
     "@styled-icons/evaicons-outline": "^10.46.0",
     "graphql": "^16.8.1",
-    "graphql-request": "^6.1.0",
+    "graphql-request": "^3.7.0",
     "leaflet": "1.7.1",
     "next": "12.0.10",
     "next-pwa": "^5.3.1",
@@ -34,6 +35,10 @@
     "styled-components": "5.3.3"
   },
   "devDependencies": {
+    "@graphql-codegen/add": "^3.1.1",
+    "@graphql-codegen/cli": "2.3.1",
+    "@graphql-codegen/typescript": "2.4.2",
+    "@graphql-codegen/typescript-operations": "2.2.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
     "@types/jest": "^27.4.0",
