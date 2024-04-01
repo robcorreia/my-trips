@@ -1,6 +1,6 @@
 import client from 'graphql/client'
 import { GetPlaceBySlugQuery, GetPlacesQuery } from 'graphql/generated/graphql'
-import { GET_PAGE_BY_SLUG, GET_PLACES } from 'graphql/queries'
+import { GET_PLACE_BY_SLUG, GET_PLACES } from 'graphql/queries'
 import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import PlacesTemplate, { PlacesTemplateProps } from 'templates/Places'
@@ -20,14 +20,13 @@ export async function getStaticPaths() {
   const paths = places.map(({ slug }) => ({
     params: { slug }
   }))
-  console.log(places)
 
   return { paths, fallback: true }
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { place } = await client.request<GetPlaceBySlugQuery>(
-    GET_PAGE_BY_SLUG,
+    GET_PLACE_BY_SLUG,
     {
       slug: `${params?.slug}`
     }
